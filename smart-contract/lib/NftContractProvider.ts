@@ -2,7 +2,7 @@
 // It can be updated using the following command:
 // yarn rename-contract NEW_CONTRACT_NAME
 // Please DO NOT change it manually!
-import { GreatSwords as ContractType } from '../typechain/index';
+import { MadLoot as ContractType } from '../typechain/index';
 
 import { ethers } from 'hardhat';
 import CollectionConfig from './../config/CollectionConfig';
@@ -17,7 +17,7 @@ export default class NftContractProvider {
     if (await ethers.provider.getCode(CollectionConfig.contractAddress) === '0x') {
       throw '\x1b[31merror\x1b[0m ' + `Can't find a contract deployed to the target address: ${CollectionConfig.contractAddress}`;
     }
-    
+
     return await ethers.getContractAt(CollectionConfig.contractName, CollectionConfig.contractAddress) as ContractType;
   }
 };
